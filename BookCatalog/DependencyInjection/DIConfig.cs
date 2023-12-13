@@ -1,4 +1,6 @@
 ﻿using BookCatalog.DataAccess.Persistence;
+using BookCatalog.DataAccess.Repositories;
+using BookCatalog.DataAccess.Repositories.Contracts;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookCatalog.API.DependencyInjection
@@ -10,6 +12,12 @@ namespace BookCatalog.API.DependencyInjection
             string? connection = configuration.GetConnectionString("DefaultConnection");
 
             services.AddDbContext<BookCatalogContext>(options => options.UseSqlServer(connection));
+        }
+
+        public static void AddRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<ICommentRepository, CommentRepository>();
         }
     }
 }
