@@ -4,14 +4,14 @@
     "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.DataAccess\\BookCatalog.DataAccess.csproj": {}
   },
   "projects": {
-    "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.DataAccess\\BookCatalog.DataAccess.csproj": {
+    "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.Core\\BookCatalog.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.DataAccess\\BookCatalog.DataAccess.csproj",
-        "projectName": "BookCatalog.DataAccess",
-        "projectPath": "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.DataAccess\\BookCatalog.DataAccess.csproj",
+        "projectUniqueName": "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.Core\\BookCatalog.Core.csproj",
+        "projectName": "BookCatalog.Core",
+        "projectPath": "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.Core\\BookCatalog.Core.csproj",
         "packagesPath": "C:\\Users\\pasha\\.nuget\\packages\\",
-        "outputPath": "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.DataAccess\\obj\\",
+        "outputPath": "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,85 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.DataAccess\\BookCatalog.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.DataAccess\\BookCatalog.DataAccess.csproj",
+        "projectName": "BookCatalog.DataAccess",
+        "projectPath": "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.DataAccess\\BookCatalog.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\pasha\\.nuget\\packages\\",
+        "outputPath": "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\pasha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.Core\\BookCatalog.Core.csproj": {
+                "projectPath": "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.Core\\BookCatalog.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
