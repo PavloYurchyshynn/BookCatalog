@@ -10,6 +10,6 @@ namespace BookCatalog.Core.Entities
         public string? Author { get; set; }
         public decimal Price { get; set; }
         public DateTime? Created { get; set; }
-        public Comment? Comment { get; set; }
+        public ICollection<Comment>? Comment { get; set; }
     }
 }
