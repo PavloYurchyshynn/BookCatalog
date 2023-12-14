@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "I+NvL3oaWf0iJUNsbkiKch1Qs2KaHwWmYGThMdpPzJvRkEMofo2/HeK1vYInDuvuhcejTQbvhI975XaRbfhSyg==",
+  "dgSpecHash": "aZUkkDXZEwxiaGWxmXh0Y5GJx0ISKa7HwcIe2OvAmuz8p7BR0HV+VXND89811A7Y1W5f1SEGpXwHLHYKvIZ2hQ==",
   "success": true,
   "projectFilePath": "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.Application\\BookCatalog.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pasha\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\pasha\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\pasha\\.nuget\\packages\\dapper\\2.1.24\\dapper.2.1.24.nupkg.sha512",
     "C:\\Users\\pasha\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\pasha\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\pasha\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
