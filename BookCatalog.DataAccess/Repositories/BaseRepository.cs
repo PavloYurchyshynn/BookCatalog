@@ -21,14 +21,15 @@ namespace BookCatalog.DataAccess.Repositories
         {
             var entity = await _dbSet.Where(predicate).FirstOrDefaultAsync();
 
-            if (entity == null) throw new Exception();
+            if (entity == null) throw new Exception("Book does not exist");
 
             return entity;
         }
 
-        public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate)
+        public IQueryable<TEntity> GetAll(params Expression<Func<TEntity, object>>[] includes)
         {
-            return await _dbSet.Where(predicate).ToListAsync();
+            var query = _context.Set<TEntity>().AsQueryable();
+            return includes.Aggregate(query, (q, w) => q.Include(w));
         }
 
         public async Task<TEntity> AddAsync(TEntity entity)

@@ -27,7 +27,14 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.DataAccess\\BookCatalog.DataAccess.csproj": {
+                "projectPath": "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.DataAccess\\BookCatalog.DataAccess.csproj"
+              },
+              "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.Shared\\BookCatalog.Shared.csproj": {
+                "projectPath": "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.Shared\\BookCatalog.Shared.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -40,6 +47,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Dapper": {
               "target": "Package",
               "version": "[2.1.24, )"
@@ -115,6 +130,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Dapper": {
               "target": "Package",
               "version": "[2.1.24, )"
@@ -194,6 +217,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Dapper": {
               "target": "Package",
               "version": "[2.1.24, )"
@@ -269,6 +300,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Dapper": {
               "target": "Package",
               "version": "[2.1.24, )"
@@ -354,6 +393,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Dapper": {
               "target": "Package",
               "version": "[2.1.24, )"

@@ -57,23 +57,18 @@ namespace BookCatalog.DataAccess.Migrations
                     b.Property<Guid?>("Bookid")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("id");
 
                     b.HasIndex("Bookid");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comment");
                 });
 
             modelBuilder.Entity("BookCatalog.Core.Entities.Comment", b =>
                 {
-                    b.HasOne("BookCatalog.Core.Entities.Book", "Book")
+                    b.HasOne("BookCatalog.Core.Entities.Book", null)
                         .WithMany("Comment")
                         .HasForeignKey("Bookid");
-
-                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("BookCatalog.Core.Entities.Book", b =>

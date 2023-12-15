@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "VF7r5vh/2qRad1Tcpj7il2y5CXHY6v6s76ypULZB0bKL6U0mDCGpurBlDzf6++TwPcWm2CiGr8JjTy9sKyDYSA==",
+  "dgSpecHash": "esg8NwmaKdOtnQV6oCMweWRkxhcunTYe8XBOnRQ1TLwpYB81oW1GRxDh/yfjLRzmsHOfYfRpaG2b0w3s5S2JFQ==",
   "success": true,
   "projectFilePath": "D:\\GloriumTechnologies\\BookCatalog\\BookCatalog.Shared\\BookCatalog.Shared.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\pasha\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\pasha\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\pasha\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\pasha\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\pasha\\.nuget\\packages\\dapper\\2.1.24\\dapper.2.1.24.nupkg.sha512",
@@ -14,7 +16,7 @@
     "C:\\Users\\pasha\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.5.0\\microsoft.codeanalysis.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\pasha\\.nuget\\packages\\microsoft.codeanalysis.csharp.workspaces\\4.5.0\\microsoft.codeanalysis.csharp.workspaces.4.5.0.nupkg.sha512",
     "C:\\Users\\pasha\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\4.5.0\\microsoft.codeanalysis.workspaces.common.4.5.0.nupkg.sha512",
-    "C:\\Users\\pasha\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\pasha\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\pasha\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",
     "C:\\Users\\pasha\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.1.0\\microsoft.data.sqlclient.sni.runtime.5.1.0.nupkg.sha512",
     "C:\\Users\\pasha\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.0\\microsoft.entityframeworkcore.8.0.0.nupkg.sha512",
