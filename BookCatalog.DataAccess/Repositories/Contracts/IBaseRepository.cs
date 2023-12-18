@@ -10,5 +10,6 @@ namespace BookCatalog.DataAccess.Repositories.Contracts
         Task<TEntity> AddAsync(TEntity entity);
         Task<TEntity> UpdateAsync(TEntity entity);
         Task<TEntity> DeleteAsync(TEntity entity);
+        IQueryable<TEntity> GetWhere(Expression<Func<TEntity, bool>> predicate);
     }
 }

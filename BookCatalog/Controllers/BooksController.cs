@@ -44,6 +44,21 @@ namespace BookCatalog.API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("name")]
+        public async Task<IActionResult> GetBooksByNameAsync(string name)
+        {
+            try
+            {
+                var books = await _bookService.GetBooksByNameAsync(name);
+                return Ok(books);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddBookAsync(AddBookModel model)
         {

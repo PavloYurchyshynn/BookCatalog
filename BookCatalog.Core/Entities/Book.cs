@@ -11,5 +11,6 @@ namespace BookCatalog.Core.Entities
         public decimal Price { get; set; }
         public DateTime? Created { get; set; }
         public ICollection<Comment>? Comment { get; set; }
+        public ICollection<BasketItem>? BasketItems { get; set; }
     }
 }

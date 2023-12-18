@@ -4,6 +4,6 @@ namespace BookCatalog.DataAccess.DapperRepositories.Contracts
 {
     public interface IDapperBookRepository
     {
-        Task<IEnumerable<Book>> GetByName(string name);
+        Task<IEnumerable<Book>> GetByNameAsync(string name);
     }
 }

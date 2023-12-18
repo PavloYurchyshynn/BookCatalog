@@ -18,7 +18,7 @@ namespace BookCatalog.DataAccess.DapperRepositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Book>> GetByName(string name)
+        public async Task<IEnumerable<Book>> GetByNameAsync(string name)
         {
             var parameters = new DynamicParameters();
             parameters.Add("name", name, DbType.String);

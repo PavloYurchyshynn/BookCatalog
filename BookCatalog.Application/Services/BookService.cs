@@ -3,6 +3,7 @@ using BookCatalog.Application.Helpers;
 using BookCatalog.Application.Models.Book;
 using BookCatalog.Application.Services.Contracts;
 using BookCatalog.Core.Entities;
+using BookCatalog.DataAccess.DapperRepositories.Contracts;
 using BookCatalog.DataAccess.Repositories.Contracts;
 
 namespace BookCatalog.Application.Services
@@ -11,11 +12,13 @@ namespace BookCatalog.Application.Services
     {
         private readonly IMapper _mapper;
         private readonly IBookRepository _bookRepository;
+        private readonly IDapperBookRepository _dapperBookRepository;
 
-        public BookService(IMapper mapper, IBookRepository bookRepository)
+        public BookService(IMapper mapper, IBookRepository bookRepository, IDapperBookRepository dapperBookRepository)
         {
             _mapper = mapper;
             _bookRepository = bookRepository;
+            _dapperBookRepository = dapperBookRepository;
         }
 
         public IEnumerable<BookModel> GetAllBooks()
@@ -39,6 +42,17 @@ namespace BookCatalog.Application.Services
             }
 
             return _mapper.Map<BookModel>(book);
+        }
+
+        public async Task<IEnumerable<BookModel>> GetBooksByNameAsync(string name)
+        {
+            var books = await _dapperBookRepository.GetByNameAsync(name);
+            if (books == null)
+            {
+                throw new Exception("Not found");
+            }
+
+            return _mapper.Map<IEnumerable<BookModel>>(books);
         }
 
         public async Task<BookModel> AddBookAsync(AddBookModel book)

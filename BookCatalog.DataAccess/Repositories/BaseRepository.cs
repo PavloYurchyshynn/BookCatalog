@@ -55,5 +55,10 @@ namespace BookCatalog.DataAccess.Repositories
 
             return removedEntity;
         }
+
+        public IQueryable<TEntity> GetWhere(Expression<Func<TEntity, bool>> predicate)
+        {
+            return _context.Set<TEntity>().Where(predicate).AsQueryable();
+        }
     }
 }
