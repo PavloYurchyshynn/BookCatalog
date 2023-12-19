@@ -7,5 +7,6 @@ namespace BookCatalog.Core.Entities
         public decimal TotalAmount { get; set; }
         public int TotalQuantity { get; set; }
         public ICollection<BasketItem>? Items { get; set; }
+        public ICollection<Order>? Orders { get; set;}
     }
 }

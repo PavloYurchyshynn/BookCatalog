@@ -17,6 +17,7 @@ namespace BookCatalog.API.DependencyInjection
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<ICommentService, CommentService>();
             services.AddScoped<IBasketService, BasketService>();
+            services.AddScoped<IOrderService, OrderService>();
         }
 
         public static void AddDatabase(this IServiceCollection services, IConfiguration configuration)
@@ -34,6 +35,8 @@ namespace BookCatalog.API.DependencyInjection
             services.AddScoped<ICommentRepository, CommentRepository>();
             services.AddScoped<IBasketRepository, BasketRepository>();
             services.AddScoped<IBasketItemRepository, BasketItemRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderItemRepository, OrderItemRepository>();
 
             services.AddScoped<IDapperBookRepository, DapperBookRepository>();
         }
@@ -43,6 +46,7 @@ namespace BookCatalog.API.DependencyInjection
             services.AddAutoMapper(typeof(BookProfile).Assembly);
             services.AddAutoMapper(typeof(CommentProfile).Assembly);
             services.AddAutoMapper(typeof(BasketProfile).Assembly);
+            services.AddAutoMapper(typeof(OrderProfile).Assembly);
         }
     }
 }

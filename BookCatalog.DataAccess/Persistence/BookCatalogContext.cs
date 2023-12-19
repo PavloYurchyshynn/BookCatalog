@@ -21,5 +21,7 @@ namespace BookCatalog.DataAccess.Persistence
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Basket> Basket { get; set; }
         public DbSet<BasketItem> BasketItem { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrdersItems { get; set;}
     }
 }
