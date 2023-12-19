@@ -4,6 +4,7 @@ using BookCatalog.DataAccess.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookCatalog.DataAccess.Migrations
 {
     [DbContext(typeof(BookCatalogContext))]
-    partial class BookCatalogContextModelSnapshot : ModelSnapshot
+    [Migration("20231219091331_Orders")]
+    partial class Orders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,20 +123,8 @@ namespace BookCatalog.DataAccess.Migrations
                     b.Property<string>("DeliveryAddress")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("OrderStatus")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PhoneNumber")
-                        .HasColumnType("int");
-
-                    b.Property<decimal?>("Price")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("id");
 
@@ -154,10 +145,9 @@ namespace BookCatalog.DataAccess.Migrations
                     b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
                     b.HasKey("id");
+
+                    b.HasIndex("BookId");
 
                     b.HasIndex("OrderId");
 
@@ -207,11 +197,19 @@ namespace BookCatalog.DataAccess.Migrations
 
             modelBuilder.Entity("BookCatalog.Core.Entities.OrderItem", b =>
                 {
+                    b.HasOne("BookCatalog.Core.Entities.Book", "Book")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("BookCatalog.Core.Entities.Order", "Order")
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Book");
 
                     b.Navigation("Order");
                 });
@@ -228,6 +226,8 @@ namespace BookCatalog.DataAccess.Migrations
                     b.Navigation("BasketItems");
 
                     b.Navigation("Comment");
+
+                    b.Navigation("OrderItems");
                 });
 
             modelBuilder.Entity("BookCatalog.Core.Entities.Order", b =>
