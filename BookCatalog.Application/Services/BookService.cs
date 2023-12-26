@@ -2,6 +2,7 @@
 using BookCatalog.Application.Helpers;
 using BookCatalog.Application.Models.Book;
 using BookCatalog.Application.Services.Contracts;
+using BookCatalog.Application.SyncDataServices.Http;
 using BookCatalog.Core.Entities;
 using BookCatalog.DataAccess.DapperRepositories.Contracts;
 using BookCatalog.DataAccess.Repositories.Contracts;
@@ -13,12 +14,14 @@ namespace BookCatalog.Application.Services
         private readonly IMapper _mapper;
         private readonly IBookRepository _bookRepository;
         private readonly IDapperBookRepository _dapperBookRepository;
+        private readonly IBookCatalogServiceClient _bookCatalogServiceClient;
 
-        public BookService(IMapper mapper, IBookRepository bookRepository, IDapperBookRepository dapperBookRepository)
+        public BookService(IMapper mapper, IBookRepository bookRepository, IDapperBookRepository dapperBookRepository, IBookCatalogServiceClient bookCatalogServiceClient)
         {
             _mapper = mapper;
             _bookRepository = bookRepository;
             _dapperBookRepository = dapperBookRepository;
+            _bookCatalogServiceClient = bookCatalogServiceClient;
         }
 
         public IEnumerable<BookModel> GetAllBooks()
@@ -65,6 +68,9 @@ namespace BookCatalog.Application.Services
             entity.Created = DateTime.Now;
 
             await _bookRepository.AddAsync(entity);
+
+            await _bookCatalogServiceClient.SendBookToBookService(_mapper.Map<BookModel>(entity));
+
             return _mapper.Map<BookModel>(entity);
         }
 

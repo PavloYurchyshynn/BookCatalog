@@ -3,6 +3,7 @@ using BookCatalog.Application.MappingProfiles;
 using BookCatalog.Application.Models.Book;
 using BookCatalog.Application.Services;
 using BookCatalog.Application.Services.Contracts;
+using BookCatalog.Application.SyncDataServices.Http;
 using BookCatalog.Core.Entities;
 using BookCatalog.DataAccess.DapperRepositories.Contracts;
 using BookCatalog.DataAccess.Repositories.Contracts;
@@ -17,6 +18,7 @@ namespace BookCatalog.Application.UnitTests.Services
         private readonly Mock<IDapperBookRepository> _dapperBookRepository;
         private readonly IBookService _bookService;
         private readonly IMapper _mapper;
+        private readonly Mock<IBookCatalogServiceClient> _bookCatalogServiceClient;
 
         public BookServiceTests()
         {
@@ -26,7 +28,8 @@ namespace BookCatalog.Application.UnitTests.Services
             }).CreateMapper();
             _bookRepository = new Mock<IBookRepository>();
             _dapperBookRepository = new Mock<IDapperBookRepository>();
-            _bookService = new BookService(_mapper, _bookRepository.Object, _dapperBookRepository.Object);
+            _bookCatalogServiceClient = new Mock<IBookCatalogServiceClient>();
+            _bookService = new BookService(_mapper, _bookRepository.Object, _dapperBookRepository.Object, _bookCatalogServiceClient.Object);
         }
 
         [Fact]
