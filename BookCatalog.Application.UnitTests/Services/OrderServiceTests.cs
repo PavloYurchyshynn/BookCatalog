@@ -41,9 +41,9 @@ namespace BookCatalog.Application.UnitTests.Services
             var orderModel = new MakeOrderModel() { BasketId = basketId, DeliveryAddress = "Home", Email = "test@x.com", Name = "Pasha", PhoneNumber = 23432432 };
             var basketItems = new List<BasketItem>()
             {
-                new BasketItem() { BookId = Guid.NewGuid(), Quantity = 5, BasketId = basketId },
-                new BasketItem() { BookId = Guid.NewGuid(), Quantity = 5, BasketId = basketId },
-                new BasketItem() { BookId = Guid.NewGuid(), Quantity = 5, BasketId = basketId },
+                new BasketItem() { id = Guid.NewGuid(), BookId = Guid.NewGuid(), Quantity = 5, BasketId = basketId },
+                new BasketItem() { id = Guid.NewGuid(), BookId = Guid.NewGuid(), Quantity = 5, BasketId = basketId },
+                new BasketItem() { id = Guid.NewGuid(), BookId = Guid.NewGuid(), Quantity = 5, BasketId = basketId },
             };
             var basket = new Basket() { id = basketId, TotalQuantity = 15, TotalAmount = 1500 };
             var order = new Order()
@@ -69,7 +69,7 @@ namespace BookCatalog.Application.UnitTests.Services
 
             _basketItemRepository.Setup(x => x.GetWhere(It.IsAny<Expression<Func<BasketItem, bool>>>())).Returns(query);
             _basketRepository.Setup(x => x.GetFirstAsync(It.IsAny<Expression<Func<Basket, bool>>>())).Returns(Task.FromResult(basket));
-            _orderRepository.Setup(x => x.AddAsync(order)).Returns(Task.FromResult(addedOrder));
+            _orderRepository.Setup(x => x.AddAsync(It.Is<Order>(p => p.BasketId == order.BasketId))).Returns(Task.FromResult(addedOrder));
             foreach (var item in basketItems)
             {
                 var orderItem = new OrderItem()
