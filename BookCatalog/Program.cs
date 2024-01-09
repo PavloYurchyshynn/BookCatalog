@@ -1,5 +1,7 @@
 using BookCatalog.API.DependencyInjection;
 using BookCatalog.Application.SyncDataServices.Http;
+using BookCatalog.DataAccess.Persistence;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,10 +10,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpClient<IBookCatalogServiceClient, HttpBookCatalogServiceClient>();
 builder.Services.AddAutoMapper();
 builder.Services.AddDatabase(builder.Configuration);
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<BookCatalogContext>()
+    .AddDefaultTokenProviders();
+builder.Services.AddJwtAuthentication(builder.Configuration);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddAuthSwagger();
 builder.Services.AddRepositories();
 builder.Services.AddServices();
 
@@ -26,6 +32,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
