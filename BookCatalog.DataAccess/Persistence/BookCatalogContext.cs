@@ -1,15 +1,16 @@
 ﻿using BookCatalog.Core.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookCatalog.DataAccess.Persistence
 {
-    public class BookCatalogContext : DbContext
+    public class BookCatalogContext : IdentityDbContext<IdentityUser>
     {
         public BookCatalogContext(DbContextOptions<BookCatalogContext> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,5 +1,6 @@
 ﻿using BookCatalog.Application.Models.Book;
 using BookCatalog.Application.Services.Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookCatalog.API.Controllers
@@ -29,6 +30,7 @@ namespace BookCatalog.API.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet]
         [Route("{id}")]
         public async Task<IActionResult> GetBookByIdAsync(Guid id)

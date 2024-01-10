@@ -1,6 +1,7 @@
 ﻿using BookCatalog.Core.Common;
 using BookCatalog.DataAccess.Persistence;
 using BookCatalog.DataAccess.Repositories.Contracts;
+using BookCatalog.DataAccess.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -10,6 +11,10 @@ namespace BookCatalog.DataAccess.Repositories
     {
         protected readonly BookCatalogContext _context;
         protected readonly DbSet<TEntity> _dbSet;
+
+        /*public BaseRepository(IUnitOfWork<BookCatalogContext> unitOfWork) : this(unitOfWork.Context)
+        { 
+        }*/
 
         protected BaseRepository(BookCatalogContext context)
         {

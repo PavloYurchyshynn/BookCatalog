@@ -1,5 +1,7 @@
 ﻿using BookCatalog.Application.Models.Book;
+using BookCatalog.Shared.Services;
 using Microsoft.Extensions.Configuration;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 
@@ -9,15 +11,21 @@ namespace BookCatalog.Application.SyncDataServices.Http
     {
         private readonly HttpClient _httpClient;
         private readonly IConfiguration _configuration;
+        private readonly IJwtTokenService _jwtTokenService;
 
-        public HttpBookCatalogServiceClient(HttpClient httpClient, IConfiguration configuration)
+        public HttpBookCatalogServiceClient(HttpClient httpClient, IConfiguration configuration, IJwtTokenService jwtTokenService)
         {
             _httpClient = httpClient;
             _configuration = configuration;
+            _jwtTokenService = jwtTokenService;
         }
 
         public async Task SendBookToBookService(BookModel model)
         {
+            var token = _configuration["JWT:Token"];
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
             var httpContent = new StringContent(
                 JsonSerializer.Serialize(model),
                 Encoding.UTF8,
